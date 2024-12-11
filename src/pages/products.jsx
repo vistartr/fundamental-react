@@ -1,9 +1,10 @@
-import Button from "../components/Elements/Button";
+// import Button from "../components/Elements/Button";
+import CardProduct from "../components/Fragments/CardProduct";
 
 const ProductPage = () => {
     return (
-        <div className="flex justify-center">
-            <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
+        <div className="flex justify-center my-5">
+            {/* <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
                 <a href="#">
                     <img 
                         src="/images/shoes.jpg" 
@@ -30,7 +31,30 @@ const ProductPage = () => {
                     </span>
                     <Button className="bg-blue-600">Add to Cart</Button>
                 </div>
-            </div>
+            </div> */}
+
+            {/* Pemanggilan Card Product */}
+            <CardProduct>
+                <CardProduct.Header image="/images/shoes.jpg"></CardProduct.Header>
+                <CardProduct.Body title="Sepatu Baru">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Velit officiis vitae quo et ullam sapiente doloremque, 
+                    delectus voluptatum tenetur facilis dolores dolorum earum consequuntur
+                    similique esse reiciendis aspernatur. Quasi, veniam!
+                </CardProduct.Body>
+                <CardProduct.Footer price="Rp1.000.000"></CardProduct.Footer>
+            </CardProduct>
+            <CardProduct>
+                <CardProduct.Header image="/images/shoes.jpg"></CardProduct.Header>
+                <CardProduct.Body title="Sepatu Baru">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Velit officiis vitae quo et ullam sapiente doloremque, 
+                    delectus voluptatum tenetur facilis dolores dolorum earum consequuntur
+                    similique esse reiciendis aspernatur. Quasi, veniam!
+                </CardProduct.Body>
+                <CardProduct.Footer price="Rp1.000.000"></CardProduct.Footer>
+            </CardProduct>
+            
         </div>
     )
 }
