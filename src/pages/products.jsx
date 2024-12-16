@@ -1,5 +1,7 @@
 // import Button from "../components/Elements/Button";
+import { Fragment } from "react";
 import CardProduct from "../components/Fragments/CardProduct";
+import Button from "../components/Elements/Button";
 
 
 const products = [{
@@ -29,13 +31,48 @@ const products = [{
         image: "/images/shoes.jpg",
         description: 
             `produk ini adalah terbaik yang berada di pasaran, `
-    },
-    
+    },    
 ];
 
+
+
+const email = localStorage.getItem("email");
+
+
+
 const ProductsPage = () => {
+
+    const handleLogout = () => {
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+        window.location.href = "/login"
+    }
     return (
-        <div className="flex justify-center my-5">
+        <Fragment>
+            <div className="flex justify-end h-20 bg-blue-600 text-white items-center px-10">
+                {email}
+                <Button classname="ml-5 bg-black" onClick={handleLogout}>
+                    Logout
+                </Button>
+            </div>
+            <div className="flex justify-center py-5">
+                {products.map((product) => (
+                    <CardProduct key={product.id}>
+                        <CardProduct.Header image={product.image}></CardProduct.Header>
+                        <CardProduct.Body title={product.name}>
+                            {product.description}
+                        </CardProduct.Body>
+                        <CardProduct.Footer price={product.price}></CardProduct.Footer>
+                    </CardProduct>
+                ))};
+            </div>
+        </Fragment>
+        
+    );
+};
+
+export default ProductsPage;
+
             {/* <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
                 <a href="#">
                     <img 
@@ -100,20 +137,3 @@ const ProductsPage = () => {
                 </CardProduct.Body>
                 <CardProduct.Footer price="Rp1.000.000"></CardProduct.Footer>
             </CardProduct> */}
-
-            {products.map((product) => (
-                <CardProduct key={product.id}>
-                    <CardProduct.Header image={product.image}></CardProduct.Header>
-                    <CardProduct.Body title={product.name}>
-                        {product.description}
-                    </CardProduct.Body>
-                    <CardProduct.Footer price={product.price}></CardProduct.Footer>
-                </CardProduct>
-            ))};
-        </div>
-    )
-}
-
-
-
-export default ProductsPage;
